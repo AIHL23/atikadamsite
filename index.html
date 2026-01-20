@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Atik Adam | Pixel Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="page-wipe"></div>
+
+    <div id="lightbox" class="hidden">
+        <div class="close-area" onclick="closeImg()">
+            <span class="close-btn">&times;</span>
+        </div>
+        <img id="lb-img" src="" alt="Görsel">
+    </div>
+
+    <div class="theme-btn" onclick="toggleTheme()">🌓</div>
+
+    <div id="splash">
+        <div class="splash-box">
+            <h1 class="glitch-text">HOŞGELDİN OYUNCU</h1>
+            <div id="timer">3</div>
+        </div>
+    </div>
+
+    <main id="home" class="hidden">
+        <header>
+            <div class="pp-border">
+                <img src="fotoğraflar/Atikadampp.png" class="profile-pic">
+            </div>
+            <div class="social-box">
+                <a href="https://www.instagram.com/atik_adamsi?igsh=MWZna3lkcXc4c2F6OQ==" target="_blank" class="pixel-button insta">INSTAGRAM</a>
+                <a href="#" class="pixel-button steam">STEAM</a>
+            </div>
+        </header>
+
+        <section class="content">
+            <h2 class="section-title">OYUNLARIM</h2>
+            <div class="game-grid">
+                <div class="game-card" onclick="pageTransition(() => openGame('ailem'))">
+                    <img src="fotoğraflar/ailemolurmusunlogo.png">
+                    <p>AİLEM OLUR MUSUN</p>
+                </div>
+                <div class="game-card" onclick="pageTransition(() => openGame('desti'))">
+                    <img src="fotoğraflar/destilogo.png">
+                    <p>DESTROY THINGS</p>
+                </div>
+                <div class="game-card" onclick="pageTransition(() => openGame('zumrut'))">
+                    <img src="fotoğraflar/zumrutlogo.png">
+                    <p>ZÜMRÜT ÇİÇEĞİ</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hot-news">
+            <h2 class="section-title">ÖNERİLEN HABER!</h2>
+            <div class="news-strip" onclick="pageTransition(() => openGame('zumrut'))">
+                <span class="dot"></span> ZÜMRÜT ÇİÇEĞİ ÇOK YAKINDA!
+            </div>
+        </section>
+    </main>
+
+    <div id="detail" class="hidden">
+        <div id="detail-view"></div>
+        <button class="pixel-button back-home" onclick="pageTransition(goBack)">← GERİ DÖN</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

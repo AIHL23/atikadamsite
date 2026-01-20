@@ -1,0 +1,110 @@
+:root {
+    --bg: #000000;
+    --card: #121212;
+    --text: #ffffff;
+    --prim: #00ff00;
+    --accent: #e1306c;
+}
+
+[data-theme="light"] {
+    --bg: #f0f0f0;
+    --card: #ffffff;
+    --text: #111111;
+    --prim: #008000;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+.hidden { display: none !important; }
+
+body { 
+    background: var(--bg); color: var(--text); 
+    font-family: 'Inter', sans-serif; 
+    transition: 0.3s ease; overflow-x: hidden;
+}
+
+.section-title, .pixel-button, .game-card p, #timer, .glitch-text, .news-strip, .read-more-btn {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Sayfa Geçiş Perdesi */
+#page-wipe {
+    position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+    background: var(--prim); z-index: 9999;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#page-wipe.active { transform: translateX(100%); }
+
+/* Lightbox */
+#lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 8000;
+    display: flex; align-items: center; justify-content: center;
+}
+#lb-img { max-width: 90%; max-height: 75%; border: 3px solid #fff; }
+.close-area { position: absolute; top: 20px; right: 20px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; background: var(--accent); border-radius: 50%; }
+.close-btn { font-size: 30px; color: #fff; font-family: Arial; font-weight: bold; }
+
+/* Tema Tuşu */
+.theme-btn {
+    position: fixed; top: 15px; right: 15px; z-index: 1000;
+    background: var(--card); border: 2px solid var(--prim);
+    width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; cursor: pointer;
+}
+
+/* Splash */
+#splash {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; z-index: 9000; display: flex; align-items: center; justify-content: center;
+}
+.glitch-text { font-size: 12px; color: var(--prim); animation: shake 0.2s infinite; text-align: center; }
+#timer { font-size: 50px; text-align: center; margin-top: 20px; color: #fff; }
+
+/* Profil & Sosyal */
+header { padding: 60px 20px 20px; display: flex; flex-direction: column; align-items: center; }
+.pp-border { padding: 4px; background: var(--prim); border-radius: 50%; margin-bottom: 20px; }
+.profile-pic { width: 100px; height: 100px; border-radius: 50%; display: block; border: 3px solid #000; }
+
+.social-box { display: flex; flex-direction: column; gap: 12px; width: 85%; max-width: 300px; }
+.pixel-button {
+    padding: 14px; border: 3px solid var(--text); background: var(--card);
+    color: var(--text); text-decoration: none; text-align: center;
+    font-size: 8px; cursor: pointer; box-shadow: 4px 4px 0px var(--prim);
+}
+
+/* Oyun Kartları */
+.section-title { font-size: 10px; margin: 40px 0 20px; color: var(--prim); text-align: center; }
+.game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; }
+.game-card { background: var(--card); border: 2px solid var(--text); padding: 8px; text-align: center; }
+.game-card img { width: 100%; margin-bottom: 8px; }
+.game-card p { font-size: 6px; }
+
+/* Tanıtım Sayfası */
+#detail { padding: 20px 15px; }
+.detail-logo { width: 140px; display: block; margin: 0 auto 20px; }
+.intro-box { 
+    font-size: 14px; line-height: 1.7; text-align: left;
+    background: var(--card); padding: 20px; border-left: 5px solid var(--prim);
+    margin-bottom: 25px; color: var(--text);
+}
+
+/* Devamını Oku Düğmesi */
+.read-more-btn {
+    display: inline-block; margin-top: 15px; font-size: 7px;
+    color: var(--prim); cursor: pointer; text-decoration: underline;
+}
+
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.gallery-grid img { width: 100%; border: 2px solid var(--text); }
+.back-home { width: 100%; margin-top: 30px; background: #333; }
+
+/* Animasyonlar */
+@keyframes shake { 0% { transform: translate(0); } 50% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
+@keyframes blink { 50% { opacity: 0; } }
+
+.news-strip {
+    width: 90%; margin: 0 auto 50px; padding: 20px;
+    border: 3px dashed var(--prim); background: var(--card);
+    text-align: center; font-size: 8px;
+}
+.dot { height: 8px; width: 8px; background: red; border-radius: 50%; display: inline-block; margin-right: 8px; animation: blink 0.8s infinite; }
